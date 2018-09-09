@@ -41,7 +41,10 @@ int main(void)
     printf( "\n" );
   }
   getchar();
-  writepbmf("output.pbm" , n , array);
+  printf( "Output file name \n" );
+  char cha[256];
+  scanf("%256s" , cha);printf( cha );
+  writepbmf(cha , n , array);
 }
 
 void firstRow (int first[n] , int map[n][n])
@@ -104,6 +107,7 @@ void readRules(){
     printf("Insert rules (1 - number , 2 - in standart order(1 0 1 0 1 0 1 0) , 3 - chaoticly(1 0 1 1))" );
     printf( "\n" );
     int first , i;
+    bool a = false;
     scanf("%d" , &first);
     while ((first < 1) || (first > 3)){
         printf("Just 1, 2 or 3");
@@ -212,15 +216,15 @@ int * readFirst(){
     if (first == 2){
         printf("input file name is ");
         printf( "\n" );
-        char cha[20];
-        scanf("%20s" , cha);
+        char cha[256];
+        scanf("%256s" , cha);
         return readtf( cha , 1);
     }
     if (first == 3){
         printf("input PBM-file name is ");
         printf( "\n" );
-        char cha[20];
-        scanf("%20s" , cha);
+        char cha[256];
+        scanf("%256s" , cha);
         return readpbmf( cha );
     }
 }
